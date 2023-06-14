@@ -10,6 +10,12 @@
 		63AE7C1BD72F8AC556299844 /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE74614E261EF6527CC8303 /* Pods_WeatherAppTests.framework */; };
 		93DA1C8C074D8B747F252364 /* Pods_WeatherApp_WeatherAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9113FA3A985221709C9478 /* Pods_WeatherApp_WeatherAppUITests.framework */; };
 		CA73C80151A584718D694439 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF773262A1AB8F1148C276B5 /* Pods_WeatherApp.framework */; };
+		D976FCF72A3A1ED000565B1B /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF12A3A1ED000565B1B /* UIStackView.swift */; };
+		D976FCF82A3A1ED000565B1B /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF22A3A1ED000565B1B /* ViewExtension.swift */; };
+		D976FCF92A3A1ED000565B1B /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF32A3A1ED000565B1B /* UITableView.swift */; };
+		D976FCFA2A3A1ED000565B1B /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF42A3A1ED000565B1B /* UITableViewCell.swift */; };
+		D976FCFB2A3A1ED000565B1B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF52A3A1ED000565B1B /* UIButton.swift */; };
+		D976FCFC2A3A1ED000565B1B /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF62A3A1ED000565B1B /* UIImageView.swift */; };
 		D9BA12472A3A1908004F26E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA12462A3A1908004F26E0 /* AppDelegate.swift */; };
 		D9BA12492A3A1908004F26E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA12482A3A1908004F26E0 /* SceneDelegate.swift */; };
 		D9BA124B2A3A1908004F26E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA124A2A3A1908004F26E0 /* ViewController.swift */; };
@@ -49,6 +55,12 @@
 		5BA305CE4A1EBB3C6B67085E /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		5DE74614E261EF6527CC8303 /* Pods_WeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9113FA3A985221709C9478 /* Pods_WeatherApp_WeatherAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp_WeatherAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D976FCF12A3A1ED000565B1B /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		D976FCF22A3A1ED000565B1B /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		D976FCF32A3A1ED000565B1B /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		D976FCF42A3A1ED000565B1B /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		D976FCF52A3A1ED000565B1B /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		D976FCF62A3A1ED000565B1B /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		D9BA12432A3A1908004F26E0 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BA12462A3A1908004F26E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9BA12482A3A1908004F26E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +119,6 @@
 				4132419D13FFF517DD94D2D1 /* Pods-WeatherAppTests.debug.xcconfig */,
 				22996BFB3BDB968EA133B062 /* Pods-WeatherAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -119,6 +130,26 @@
 				5DE74614E261EF6527CC8303 /* Pods_WeatherAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D976FCF02A3A1ED000565B1B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D976FCF12A3A1ED000565B1B /* UIStackView.swift */,
+				D976FCF22A3A1ED000565B1B /* ViewExtension.swift */,
+				D976FCF32A3A1ED000565B1B /* UITableView.swift */,
+				D976FCF42A3A1ED000565B1B /* UITableViewCell.swift */,
+				D976FCF52A3A1ED000565B1B /* UIButton.swift */,
+				D976FCF62A3A1ED000565B1B /* UIImageView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D976FCFD2A3A1ED900565B1B /* Scence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scence;
 			sourceTree = "<group>";
 		};
 		D9BA123A2A3A1908004F26E0 = {
@@ -146,6 +177,8 @@
 		D9BA12452A3A1908004F26E0 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				D976FCFD2A3A1ED900565B1B /* Scence */,
+				D976FCF02A3A1ED000565B1B /* Extension */,
 				D9BA12762A3A1CBB004F26E0 /* Service */,
 				D9BA12462A3A1908004F26E0 /* AppDelegate.swift */,
 				D9BA12482A3A1908004F26E0 /* SceneDelegate.swift */,
@@ -434,9 +467,15 @@
 			files = (
 				D9BA127B2A3A1D1E004F26E0 /* TargetType.swift in Sources */,
 				D9BA124B2A3A1908004F26E0 /* ViewController.swift in Sources */,
+				D976FCF72A3A1ED000565B1B /* UIStackView.swift in Sources */,
 				D9BA12472A3A1908004F26E0 /* AppDelegate.swift in Sources */,
+				D976FCFC2A3A1ED000565B1B /* UIImageView.swift in Sources */,
 				D9BA12492A3A1908004F26E0 /* SceneDelegate.swift in Sources */,
+				D976FCFA2A3A1ED000565B1B /* UITableViewCell.swift in Sources */,
+				D976FCF92A3A1ED000565B1B /* UITableView.swift in Sources */,
 				D9BA127D2A3A1D2D004F26E0 /* CharacterTargetType.swift in Sources */,
+				D976FCFB2A3A1ED000565B1B /* UIButton.swift in Sources */,
+				D976FCF82A3A1ED000565B1B /* ViewExtension.swift in Sources */,
 				D9BA12782A3A1CDE004F26E0 /* MoyaService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

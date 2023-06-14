@@ -30,3 +30,8 @@ class MoyaService<Response: Decodable> {
         }
     }
 }
+
+enum Result<T> {
+    case Success(result: T)
+    case failure(error: Error)
+}
