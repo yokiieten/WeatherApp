@@ -9,7 +9,7 @@ import UIKit
 
 enum Storyboard: String {
 
-    case Setting = "SettingViewController"
+    case Forecast = "ForeCastViewController"
 
     var viewcontrollerId: String {
         return rawValue
@@ -61,7 +61,7 @@ class BaseRouter {
             self.viewController?.present(viewController, animated: true, completion: nil)
             return
         }
-        viewController.navigationItem.hidesBackButton = true
+//        viewController.navigationItem.hidesBackButton = true
         pushViewController(viewController, animated: true)
     }
     

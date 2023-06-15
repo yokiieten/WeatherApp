@@ -29,7 +29,10 @@ class WeatherRouter: BaseRouter, WeatherRoutingLogic, WeatherDataPassing {
   // MARK: Routing
   
     func routeToForecast() {
-        print("lat", dataStore?.lat)
-        print("lon", dataStore?.lon)
+        let vc = getViewController(storyboard: .Forecast, expectedVC: ForeCastViewController.self)
+        var destination = vc.router?.dataStore
+        destination?.lat = dataStore?.lat ?? 0.0
+        destination?.lon = dataStore?.lon ?? 0.0
+        pushViewController(vc)
     }
 }

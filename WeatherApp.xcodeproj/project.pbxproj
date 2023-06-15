@@ -28,6 +28,13 @@
 		D976FD1A2A3AEA1900565B1B /* WaterTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD192A3AEA1900565B1B /* WaterTargetType.swift */; };
 		D976FD1E2A3B0F9300565B1B /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD1D2A3B0F9300565B1B /* BaseRouter.swift */; };
 		D976FD202A3B102C00565B1B /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD1F2A3B102C00565B1B /* UINavigationController.swift */; };
+		D976FD282A3B154900565B1B /* ForeCastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD222A3B154900565B1B /* ForeCastPresenter.swift */; };
+		D976FD292A3B154900565B1B /* ForeCastWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD232A3B154900565B1B /* ForeCastWorker.swift */; };
+		D976FD2A2A3B154900565B1B /* ForeCastRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD242A3B154900565B1B /* ForeCastRouter.swift */; };
+		D976FD2B2A3B154900565B1B /* ForeCastModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD252A3B154900565B1B /* ForeCastModels.swift */; };
+		D976FD2C2A3B154900565B1B /* ForeCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD262A3B154900565B1B /* ForeCastViewController.swift */; };
+		D976FD2D2A3B154900565B1B /* ForeCastInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FD272A3B154900565B1B /* ForeCastInteractor.swift */; };
+		D976FD2F2A3B155100565B1B /* Forecast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D976FD2E2A3B155100565B1B /* Forecast.storyboard */; };
 		D9BA12472A3A1908004F26E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA12462A3A1908004F26E0 /* AppDelegate.swift */; };
 		D9BA12492A3A1908004F26E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA12482A3A1908004F26E0 /* SceneDelegate.swift */; };
 		D9BA124B2A3A1908004F26E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA124A2A3A1908004F26E0 /* ViewController.swift */; };
@@ -85,6 +92,13 @@
 		D976FD192A3AEA1900565B1B /* WaterTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTargetType.swift; sourceTree = "<group>"; };
 		D976FD1D2A3B0F9300565B1B /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		D976FD1F2A3B102C00565B1B /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		D976FD222A3B154900565B1B /* ForeCastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastPresenter.swift; sourceTree = "<group>"; };
+		D976FD232A3B154900565B1B /* ForeCastWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWorker.swift; sourceTree = "<group>"; };
+		D976FD242A3B154900565B1B /* ForeCastRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastRouter.swift; sourceTree = "<group>"; };
+		D976FD252A3B154900565B1B /* ForeCastModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastModels.swift; sourceTree = "<group>"; };
+		D976FD262A3B154900565B1B /* ForeCastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastViewController.swift; sourceTree = "<group>"; };
+		D976FD272A3B154900565B1B /* ForeCastInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastInteractor.swift; sourceTree = "<group>"; };
+		D976FD2E2A3B155100565B1B /* Forecast.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Forecast.storyboard; sourceTree = "<group>"; };
 		D9BA12432A3A1908004F26E0 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BA12462A3A1908004F26E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9BA12482A3A1908004F26E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +188,7 @@
 		D976FCFD2A3A1ED900565B1B /* Scence */ = {
 			isa = PBXGroup;
 			children = (
+				D976FD212A3B14C900565B1B /* Forecast */,
 				D976FCFE2A3A204900565B1B /* Weather */,
 			);
 			path = Scence;
@@ -216,6 +231,20 @@
 				D976FD1D2A3B0F9300565B1B /* BaseRouter.swift */,
 			);
 			path = Scence;
+			sourceTree = "<group>";
+		};
+		D976FD212A3B14C900565B1B /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				D976FD222A3B154900565B1B /* ForeCastPresenter.swift */,
+				D976FD232A3B154900565B1B /* ForeCastWorker.swift */,
+				D976FD242A3B154900565B1B /* ForeCastRouter.swift */,
+				D976FD252A3B154900565B1B /* ForeCastModels.swift */,
+				D976FD262A3B154900565B1B /* ForeCastViewController.swift */,
+				D976FD272A3B154900565B1B /* ForeCastInteractor.swift */,
+				D976FD2E2A3B155100565B1B /* Forecast.storyboard */,
+			);
+			path = Forecast;
 			sourceTree = "<group>";
 		};
 		D9BA123A2A3A1908004F26E0 = {
@@ -404,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9BA12532A3A1909004F26E0 /* LaunchScreen.storyboard in Resources */,
+				D976FD2F2A3B155100565B1B /* Forecast.storyboard in Resources */,
 				D976FD0E2A3AC49800565B1B /* Weather.storyboard in Resources */,
 				D9BA12502A3A1909004F26E0 /* Assets.xcassets in Resources */,
 				D9BA124E2A3A1908004F26E0 /* Main.storyboard in Resources */,
@@ -536,6 +566,7 @@
 			files = (
 				D9BA127B2A3A1D1E004F26E0 /* TargetType.swift in Sources */,
 				D976FD1A2A3AEA1900565B1B /* WaterTargetType.swift in Sources */,
+				D976FD2B2A3B154900565B1B /* ForeCastModels.swift in Sources */,
 				D976FD092A3A210B00565B1B /* WeatherViewController.swift in Sources */,
 				D9BA124B2A3A1908004F26E0 /* ViewController.swift in Sources */,
 				D976FD082A3A210B00565B1B /* WeatherModels.swift in Sources */,
@@ -543,17 +574,22 @@
 				D976FD062A3A210B00565B1B /* WeatherWorker.swift in Sources */,
 				D976FD1E2A3B0F9300565B1B /* BaseRouter.swift in Sources */,
 				D976FD182A3AE88400565B1B /* WeatherData.swift in Sources */,
+				D976FD282A3B154900565B1B /* ForeCastPresenter.swift in Sources */,
 				D976FCF72A3A1ED000565B1B /* UIStackView.swift in Sources */,
 				D9BA12472A3A1908004F26E0 /* AppDelegate.swift in Sources */,
+				D976FD2C2A3B154900565B1B /* ForeCastViewController.swift in Sources */,
 				D976FCFC2A3A1ED000565B1B /* UIImageView.swift in Sources */,
 				D9BA12492A3A1908004F26E0 /* SceneDelegate.swift in Sources */,
 				D976FD052A3A210B00565B1B /* WeatherPresenter.swift in Sources */,
 				D976FCFA2A3A1ED000565B1B /* UITableViewCell.swift in Sources */,
 				D976FCF92A3A1ED000565B1B /* UITableView.swift in Sources */,
+				D976FD2A2A3B154900565B1B /* ForeCastRouter.swift in Sources */,
 				D976FD202A3B102C00565B1B /* UINavigationController.swift in Sources */,
+				D976FD2D2A3B154900565B1B /* ForeCastInteractor.swift in Sources */,
 				D9BA127D2A3A1D2D004F26E0 /* CharacterTargetType.swift in Sources */,
 				D976FD072A3A210B00565B1B /* WeatherRouter.swift in Sources */,
 				D976FCFB2A3A1ED000565B1B /* UIButton.swift in Sources */,
+				D976FD292A3B154900565B1B /* ForeCastWorker.swift in Sources */,
 				D976FCF82A3A1ED000565B1B /* ViewExtension.swift in Sources */,
 				D9BA12782A3A1CDE004F26E0 /* MoyaService.swift in Sources */,
 				D976FD0A2A3A210B00565B1B /* WeatherInteractor.swift in Sources */,
