@@ -11,10 +11,22 @@
 //
 
 import UIKit
+import Moya
 
 class WeatherWorker
 {
-  func doSomeWork()
-  {
-  }
+    static var provider = MoyaProvider<MultiTarget>()
+    
+    func fetchWeather(city: String, apiKey: String , completion: @escaping (Result<WeatherDataResponse?>) ->()) {
+        let target = WeatherTargetType.getWeatherByCityName(city: city, apiKey: apiKey)
+        MoyaService<WeatherDataResponse>.getRequest(target: target) { result in
+            switch result {
+                
+            case .success(result: let result):
+                completion(.success(result: result))
+            case .failure(error: let error):
+                completion(.failure(error: error))
+            }
+        }
+    }
 }

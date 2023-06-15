@@ -14,7 +14,7 @@ import UIKit
 
 protocol WeatherPresentationLogic
 {
-  func presentSomething(response: Weather.Something.Response)
+  func presentWeatherByCity(response: Weather.GetWeather.Response)
 }
 
 class WeatherPresenter: WeatherPresentationLogic
@@ -23,9 +23,20 @@ class WeatherPresenter: WeatherPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: Weather.Something.Response)
-  {
-    let viewModel = Weather.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentWeatherByCity(response: Weather.GetWeather.Response) {
+      typealias ViewModel = Weather.GetWeather.ViewModel
+      let viewModel: ViewModel
+      switch response.result {
+      case .loading:
+          viewModel = ViewModel(content: .loading)
+      case .success(let data):
+          let id = unwrapped(data.weather.first?.id, with: 0)
+          let temperature = unwrapped(data.main.temp, with: 0.0)
+          let weatherViewModel = WeatherModel(conditionId: id, cityName: data.name, temperature: temperature)
+          viewModel = ViewModel(content: .success(data: weatherViewModel))
+      case .failure(let error):
+          viewModel = ViewModel(content: .error(error: .init(title: error.localizedDescription, message: "", case: error)))
+      }
+      viewController?.displaySomething(viewModel: viewModel)
   }
 }

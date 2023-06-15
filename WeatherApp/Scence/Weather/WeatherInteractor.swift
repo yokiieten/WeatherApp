@@ -14,28 +14,32 @@ import UIKit
 
 protocol WeatherBusinessLogic
 {
-  func doSomething(request: Weather.Something.Request)
+    func getWeatherByCity(request: Weather.GetWeather.Request)
 }
 
-protocol WeatherDataStore
-{
-  //var name: String { get set }
+protocol WeatherDataStore {
+    //var name: String { get set }
 }
 
-class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore
-{
-  var presenter: WeatherPresentationLogic?
-  var worker: WeatherWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Weather.Something.Request)
-  {
-    worker = WeatherWorker()
-    worker?.doSomeWork()
+class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
+    var presenter: WeatherPresentationLogic?
+    var worker: WeatherWorker?
+    var apiKey = "4b65dedcdc183d4f99918a6bb9cfeb62"
     
-    let response = Weather.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func getWeatherByCity(request: Weather.GetWeather.Request) {
+        
+        worker?.fetchWeather(city: request.city, apiKey: apiKey, completion: { result in
+            switch result {
+            case .success(let result):
+                if let response = result {
+                    self.presenter?.presentWeatherByCity(response: .init(result: .success(result: response)))
+                    
+                }
+            case .failure(error: let error):
+                self.presenter?.presentWeatherByCity(response: .init(result: .failure(error: error)))
+            }
+        })
+    }
 }

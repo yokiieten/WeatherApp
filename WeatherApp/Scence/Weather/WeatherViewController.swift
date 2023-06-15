@@ -14,13 +14,18 @@ import UIKit
 
 protocol WeatherDisplayLogic: AnyObject
 {
-  func displaySomething(viewModel: Weather.Something.ViewModel)
+  func displaySomething(viewModel: Weather.GetWeather.ViewModel)
 }
 
 class WeatherViewController: UIViewController, WeatherDisplayLogic
 {
   var interactor: WeatherBusinessLogic?
   var router: (NSObjectProtocol & WeatherRoutingLogic & WeatherDataPassing)?
+    
+    @IBOutlet weak var conditionImageView: UIImageView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var searchTextField: UITextField!
 
   // MARK: Object lifecycle
   
@@ -44,9 +49,11 @@ class WeatherViewController: UIViewController, WeatherDisplayLogic
     let interactor = WeatherInteractor()
     let presenter = WeatherPresenter()
     let router = WeatherRouter()
+    let worker = WeatherWorker()
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
+    interactor.worker = worker
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor
@@ -70,7 +77,9 @@ class WeatherViewController: UIViewController, WeatherDisplayLogic
   {
     super.viewDidLoad()
     doSomething()
+      searchTextField.delegate = self
   }
+    
   
   // MARK: Do something
   
@@ -78,12 +87,56 @@ class WeatherViewController: UIViewController, WeatherDisplayLogic
   
   func doSomething()
   {
-    let request = Weather.Something.Request()
-    interactor?.doSomething(request: request)
+      let request = Weather.GetWeather.Request(city: "")
+    interactor?.getWeatherByCity(request: request)
   }
   
-  func displaySomething(viewModel: Weather.Something.ViewModel)
+  func displaySomething(viewModel: Weather.GetWeather.ViewModel)
   {
-    //nameTextField.text = viewModel.name
+      switch viewModel.content {
+        
+      case .loading: break
+      case .empty: break
+      case .success(data: let data):
+          cityLabel.text = data.cityName
+          temperatureLabel.text = data.temperatureString
+          conditionImageView.image = UIImage(systemName: data.conditionName)
+      case .error(error: let error):
+          print(error)
+      }
   }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension WeatherViewController: UITextFieldDelegate {
+    
+    @IBAction func searchPressed(_ sender: UIButton) {
+        searchTextField.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "Type something"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if let city = searchTextField.text {
+            let request = Weather.GetWeather.Request(city: city)
+          interactor?.getWeatherByCity(request: request)
+        }
+        
+        searchTextField.text = ""
+        
+    }
 }

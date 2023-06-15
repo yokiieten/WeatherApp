@@ -13,7 +13,7 @@ extension TargetType {
     }
     
     var baseURL: URL {
-        URL(string: "https://rickandmortyapi.com")!
+        URL(string: "https://api.openweathermap.org")!
     }
     
     var sampleData: Data {
