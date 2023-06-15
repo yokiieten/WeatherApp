@@ -19,7 +19,7 @@ protocol WeatherDisplayLogic: AnyObject {
 
 class WeatherViewController: UIViewController {
   var interactor: WeatherBusinessLogic?
-  var router: (NSObjectProtocol & WeatherRoutingLogic & WeatherDataPassing)?
+  var router: (WeatherRoutingLogic & WeatherDataPassing)?
     
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -59,19 +59,7 @@ class WeatherViewController: UIViewController {
     router.viewController = viewController
     router.dataStore = interactor
   }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  
+    
   // MARK: View lifecycle
   
   override func viewDidLoad() {
@@ -81,12 +69,12 @@ class WeatherViewController: UIViewController {
   }
     
     private func setupNavigationBar() {
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(pushToSetting))]
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(pushToForeCast))]
         navigationController?.navigationBar.tintColor = .label
     }
     
-    @objc func pushToSetting() {
-
+    @objc func pushToForeCast() {
+        router?.routeToForecast()
     }
     
     @IBAction func tapConvert(_ sender: Any) {

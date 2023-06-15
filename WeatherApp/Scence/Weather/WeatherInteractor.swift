@@ -18,13 +18,16 @@ protocol WeatherBusinessLogic {
 }
 
 protocol WeatherDataStore {
-    //var name: String { get set }
+    var lon: Double { get set }
+    var lat: Double { get set }
 }
 
 class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
     var presenter: WeatherPresentationLogic?
     var worker: WeatherWorker?
     var apiKey = "4b65dedcdc183d4f99918a6bb9cfeb62"
+    var lon: Double = 0.0
+    var lat: Double = 0.0
     
     // MARK: Do something
     
@@ -34,6 +37,8 @@ class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
             switch result {
             case .success(let result):
                 if let response = result {
+                    self.lat = result?.coord.lat ?? 0.0
+                    self.lon = result?.coord.lon ?? 0.0
                     self.presenter?.presentWeatherByCity(response: .init(result: .success(result: response)))
                     
                 }
