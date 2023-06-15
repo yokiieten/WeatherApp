@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol WeatherDisplayLogic: class
+protocol WeatherDisplayLogic: AnyObject
 {
   func displaySomething(viewModel: Weather.Something.ViewModel)
 }
