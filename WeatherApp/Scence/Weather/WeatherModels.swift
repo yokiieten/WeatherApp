@@ -27,6 +27,18 @@ enum Weather
             let content: Content<WeatherModel, Error>
         }
     }
+    
+    enum CalulateFahrenheit {
+        struct Request {
+            let celsius: String
+        }
+        struct Response {
+            let resultFahrenheit: Double
+        }
+        struct ViewModel {
+            let resultFahrenheit: String
+        }
+    }
 }
 
 struct WeatherModel {

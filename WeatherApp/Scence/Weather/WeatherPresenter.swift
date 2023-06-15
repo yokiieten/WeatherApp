@@ -12,9 +12,9 @@
 
 import UIKit
 
-protocol WeatherPresentationLogic
-{
+protocol WeatherPresentationLogic {
   func presentWeatherByCity(response: Weather.GetWeather.Response)
+  func presentFahrenheit(response: Weather.CalulateFahrenheit.Response)
 }
 
 class WeatherPresenter: WeatherPresentationLogic
@@ -37,6 +37,11 @@ class WeatherPresenter: WeatherPresentationLogic
       case .failure(let error):
           viewModel = ViewModel(content: .error(error: .init(title: error.localizedDescription, message: "", case: error)))
       }
-      viewController?.displaySomething(viewModel: viewModel)
+      viewController?.displayWeather(viewModel: viewModel)
   }
+    
+    func presentFahrenheit(response: Weather.CalulateFahrenheit.Response) {
+        let fahrenheit = String(format: "%.1f", response.resultFahrenheit)
+        viewController?.displayFahrenheit(viewModel: .init(resultFahrenheit: fahrenheit))
+    }
 }

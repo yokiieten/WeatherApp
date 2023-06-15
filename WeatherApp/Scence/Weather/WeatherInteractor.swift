@@ -12,9 +12,9 @@
 
 import UIKit
 
-protocol WeatherBusinessLogic
-{
+protocol WeatherBusinessLogic {
     func getWeatherByCity(request: Weather.GetWeather.Request)
+    func calculateFahrenheit(request: Weather.CalulateFahrenheit.Request)
 }
 
 protocol WeatherDataStore {
@@ -41,5 +41,12 @@ class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
                 self.presenter?.presentWeatherByCity(response: .init(result: .failure(error: error)))
             }
         })
+    }
+    
+    func calculateFahrenheit(request: Weather.CalulateFahrenheit.Request) {
+        guard let celsius = Double(request.celsius) else { return  }
+        let fahrenheit = (celsius * 1.8) + 32
+        presenter?.presentFahrenheit(response: .init(resultFahrenheit: fahrenheit))
+        
     }
 }

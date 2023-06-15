@@ -12,13 +12,12 @@
 
 import UIKit
 
-protocol WeatherDisplayLogic: AnyObject
-{
-  func displaySomething(viewModel: Weather.GetWeather.ViewModel)
+protocol WeatherDisplayLogic: AnyObject {
+  func displayWeather(viewModel: Weather.GetWeather.ViewModel)
+  func displayFahrenheit(viewModel: Weather.CalulateFahrenheit.ViewModel)
 }
 
-class WeatherViewController: UIViewController, WeatherDisplayLogic
-{
+class WeatherViewController: UIViewController {
   var interactor: WeatherBusinessLogic?
   var router: (NSObjectProtocol & WeatherRoutingLogic & WeatherDataPassing)?
     
@@ -26,6 +25,8 @@ class WeatherViewController: UIViewController, WeatherDisplayLogic
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var fahrenheitLabel: UILabel!
+    @IBOutlet weak var fahrenheitStackView: UIStackView!
 
   // MARK: Object lifecycle
   
@@ -73,38 +74,39 @@ class WeatherViewController: UIViewController, WeatherDisplayLogic
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
       searchTextField.delegate = self
   }
     
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-      let request = Weather.GetWeather.Request(city: "")
-    interactor?.getWeatherByCity(request: request)
-  }
-  
-  func displaySomething(viewModel: Weather.GetWeather.ViewModel)
-  {
-      switch viewModel.content {
-        
-      case .loading: break
-      case .empty: break
-      case .success(data: let data):
-          cityLabel.text = data.cityName
-          temperatureLabel.text = data.temperatureString
-          conditionImageView.image = UIImage(systemName: data.conditionName)
-      case .error(error: let error):
-          print(error)
-      }
-  }
+    @IBAction func tapConvert(_ sender: Any) {
+        guard let celsius = temperatureLabel.text else { return }
+        interactor?.calculateFahrenheit(request: .init(celsius: celsius))
+    }
+    
+}
+
+extension WeatherViewController: WeatherDisplayLogic {
+    
+    func displayWeather(viewModel: Weather.GetWeather.ViewModel) {
+        switch viewModel.content {
+          
+        case .loading: break
+        case .empty: break
+        case .success(data: let data):
+            cityLabel.text = data.cityName
+            temperatureLabel.text = data.temperatureString
+            conditionImageView.image = UIImage(systemName: data.conditionName)
+            fahrenheitStackView.isHidden = true
+        case .error(error: let error):
+            print(error)
+        }
+    }
+    
+    func displayFahrenheit(viewModel: Weather.CalulateFahrenheit.ViewModel) {
+        fahrenheitStackView.isHidden = false
+        fahrenheitLabel.text = viewModel.resultFahrenheit
+    }
 }
 
 //MARK: - UITextFieldDelegate
