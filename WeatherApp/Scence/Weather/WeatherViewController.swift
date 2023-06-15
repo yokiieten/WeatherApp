@@ -77,7 +77,17 @@ class WeatherViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
       searchTextField.delegate = self
+      setupNavigationBar()
   }
+    
+    private func setupNavigationBar() {
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(pushToSetting))]
+        navigationController?.navigationBar.tintColor = .label
+    }
+    
+    @objc func pushToSetting() {
+
+    }
     
     @IBAction func tapConvert(_ sender: Any) {
         guard let celsius = temperatureLabel.text else { return }
