@@ -20,7 +20,7 @@ class MoyaService<Response: Decodable> {
             case .success(let response):
                 do {
                     let Response = try JSONDecoder().decode(Response.self, from: response.data)
-                    completion(.Success(result: Response))
+                    completion(.success(result: Response))
                 } catch(let error) {
                     completion(.failure(error: error))
                 }
@@ -29,9 +29,4 @@ class MoyaService<Response: Decodable> {
             }
         }
     }
-}
-
-enum Result<T> {
-    case Success(result: T)
-    case failure(error: Error)
 }
