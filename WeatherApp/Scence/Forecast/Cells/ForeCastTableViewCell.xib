@@ -3,39 +3,37 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="331" id="KGk-i7-Jjw" customClass="ForeCastTableViewCell" customModule="WeatherApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="557" height="331"/>
+            <rect key="frame" x="0.0" y="0.0" width="557" height="353"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="557" height="331"/>
+                <rect key="frame" x="0.0" y="0.0" width="557" height="353"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJF-hz-1C2">
-                        <rect key="frame" x="16" y="16" width="525" height="299"/>
+                        <rect key="frame" x="16" y="16" width="525" height="321"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1uG-1I-cJB">
-                                <rect key="frame" x="0.0" y="0.0" width="525" height="299"/>
+                                <rect key="frame" x="16" y="16" width="493" height="289"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suo-6v-biG">
-                                        <rect key="frame" x="225.66666666666666" y="0.0" width="73.666666666666657" height="38.333333333333336"/>
+                                        <rect key="frame" x="209.66666666666666" y="0.0" width="73.666666666666657" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.97627657649999999" green="0.98306709530000003" blue="0.98645859960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-6O-74x">
-                                        <rect key="frame" x="0.0" y="38.333333333333343" width="525" height="120"/>
+                                        <rect key="frame" x="0.0" y="38.333333333333329" width="493" height="119.99999999999999"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="59M-Qd-Mnb">
-                                                <rect key="frame" x="202.66666666666663" y="0.0" width="120" height="120"/>
-                                                <color key="tintColor" name="weatherColour"/>
+                                                <rect key="frame" x="186.66666666666666" y="0.0" width="119.99999999999997" height="120"/>
+                                                <color key="tintColor" red="0.94217187170000005" green="0.34997516870000001" blue="0.1335714757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="Fp1-rx-5uN"/>
                                                     <constraint firstAttribute="width" constant="120" id="psa-nV-z5q"/>
@@ -50,43 +48,54 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2o-qj-YGT">
-                                        <rect key="frame" x="200.00000000000003" y="158.33333333333334" width="125.33333333333334" height="92.666666666666657"/>
+                                        <rect key="frame" x="184" y="158.33333333333334" width="125.33333333333331" height="82.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxQ-1T-ghj" userLabel="Temperature Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="92.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="82.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="56"/>
+                                                <color key="textColor" red="0.97627657649999999" green="0.98306709530000003" blue="0.98645859960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvd-bF-R0A" userLabel="Temperature Label">
-                                                <rect key="frame" x="65.666666666666686" y="0.0" width="21.666666666666671" height="92.666666666666671"/>
+                                                <rect key="frame" x="65.666666666666686" y="0.0" width="21.666666666666671" height="82.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
+                                                <color key="textColor" red="0.97627657649999999" green="0.98306709530000003" blue="0.98645859960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCK-xI-q8v" userLabel="Temperature Label">
-                                                <rect key="frame" x="87.333333333333314" y="0.0" width="38" height="92.666666666666671"/>
+                                                <rect key="frame" x="87.333333333333314" y="0.0" width="38" height="82.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
+                                                <color key="textColor" red="0.97627657649999999" green="0.98306709530000003" blue="0.98645859960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcz-be-BtT">
-                                        <rect key="frame" x="212.00000000000003" y="251" width="101.33333333333334" height="48"/>
+                                        <rect key="frame" x="196" y="241" width="101.33333333333331" height="48"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.97627657649999999" green="0.98306709530000003" blue="0.98645859960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="1uG-1I-cJB" secondAttribute="bottom" id="59E-Me-Hv0"/>
-                            <constraint firstItem="1uG-1I-cJB" firstAttribute="leading" secondItem="VJF-hz-1C2" secondAttribute="leading" id="QUT-ht-4k9"/>
-                            <constraint firstAttribute="trailing" secondItem="1uG-1I-cJB" secondAttribute="trailing" id="Zdx-Gw-Ghn"/>
-                            <constraint firstItem="1uG-1I-cJB" firstAttribute="top" secondItem="VJF-hz-1C2" secondAttribute="top" id="mP6-FY-27Y"/>
+                            <constraint firstAttribute="bottom" secondItem="1uG-1I-cJB" secondAttribute="bottom" constant="16" id="59E-Me-Hv0"/>
+                            <constraint firstItem="1uG-1I-cJB" firstAttribute="leading" secondItem="VJF-hz-1C2" secondAttribute="leading" constant="16" id="QUT-ht-4k9"/>
+                            <constraint firstAttribute="trailing" secondItem="1uG-1I-cJB" secondAttribute="trailing" constant="16" id="Zdx-Gw-Ghn"/>
+                            <constraint firstItem="1uG-1I-cJB" firstAttribute="top" secondItem="VJF-hz-1C2" secondAttribute="top" constant="16" id="mP6-FY-27Y"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="VJF-hz-1C2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="UeF-IT-4nx"/>
                     <constraint firstAttribute="trailing" secondItem="VJF-hz-1C2" secondAttribute="trailing" constant="16" id="YFj-u9-nVO"/>
@@ -95,6 +104,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="cityLabel" destination="kcz-be-BtT" id="mWM-7q-dfk"/>
                 <outlet property="conditionImageView" destination="59M-Qd-Mnb" id="buo-mW-FZB"/>
@@ -106,11 +116,5 @@
     </objects>
     <resources>
         <image name="sun.max" catalog="system" width="128" height="125"/>
-        <namedColor name="weatherColour">
-            <color red="0.10400000214576721" green="0.29899999499320984" blue="0.32400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
