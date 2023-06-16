@@ -40,7 +40,7 @@ class WeatherPresenter: WeatherPresentationLogic
               viewModel = ViewModel(content: .success(data: weatherViewModel))
           }
       case .failure(let error):
-          viewModel = ViewModel(content: .error(error: .init(title: error.localizedDescription, message: "", case: error)))
+          viewModel = ViewModel(content: .error(error: error))
       }
       viewController?.displayWeather(viewModel: viewModel)
   }

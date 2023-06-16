@@ -35,7 +35,7 @@ public enum Content<T, E: Error> {
     case loading
     case empty
     case success(data: T)
-    case error(error: BaseViewModelError<E>)
+    case error(error: Error)
 }
 
 public struct BaseViewModelError<E: Error> {

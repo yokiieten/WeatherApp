@@ -40,7 +40,7 @@ class ForeCastPresenter: ForeCastPresentationLogic {
             }
             viewModel = ViewModel(content: .success(data: weatherListViewModel))
         case .failure(error: let error):
-            viewModel = ViewModel(content: .error(error: .init(title: error.localizedDescription, message: "", case: error)))
+            viewModel = ViewModel(content: .error(error: error))
         }
         viewController?.displayForecast(viewModel: viewModel)
     }

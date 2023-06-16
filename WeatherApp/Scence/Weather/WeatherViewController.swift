@@ -123,6 +123,7 @@ extension WeatherViewController: WeatherDisplayLogic {
             conditionImageView.image = UIImage(systemName: data.conditionName)
             fahrenheitStackView.isHidden = true
         case .error(error: let error):
+            setHidden(value: true)
             print(error)
         }
     }
