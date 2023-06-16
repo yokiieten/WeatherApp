@@ -12,6 +12,19 @@
 		CA73C80151A584718D694439 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF773262A1AB8F1148C276B5 /* Pods_WeatherApp.framework */; };
 		D90040A02A3C1E3300581D1F /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900409F2A3C1E3300581D1F /* CoreManager.swift */; };
 		D90040A22A3C40DF00581D1F /* DateFormatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040A12A3C40DF00581D1F /* DateFormatComponent.swift */; };
+		D90040B52A3C5F9800581D1F /* AIMMinimumLoadingTimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040A42A3C5F9800581D1F /* AIMMinimumLoadingTimeType.swift */; };
+		D90040B62A3C5F9800581D1F /* AIMNativeTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040A52A3C5F9800581D1F /* AIMNativeTypeModel.swift */; };
+		D90040B72A3C5F9800581D1F /* AIMActivityIndicatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040A72A3C5F9800581D1F /* AIMActivityIndicatorType.swift */; };
+		D90040B82A3C5F9800581D1F /* AIMActivityIndicatorManager+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040A92A3C5F9800581D1F /* AIMActivityIndicatorManager+View.swift */; };
+		D90040B92A3C5F9800581D1F /* ViewActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040AA2A3C5F9800581D1F /* ViewActivityIndicatorManager.swift */; };
+		D90040BA2A3C5F9800581D1F /* UIView+ExpandInSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040AC2A3C5F9800581D1F /* UIView+ExpandInSuperview.swift */; };
+		D90040BB2A3C5F9800581D1F /* UIWindow+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040AD2A3C5F9800581D1F /* UIWindow+KeyWindow.swift */; };
+		D90040BC2A3C5F9800581D1F /* UIActivityIndicatorViewStyle+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040AE2A3C5F9800581D1F /* UIActivityIndicatorViewStyle+Default.swift */; };
+		D90040BD2A3C5F9800581D1F /* WindowActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040B02A3C5F9800581D1F /* WindowActivityIndicatorManager.swift */; };
+		D90040BE2A3C5F9800581D1F /* AIMActivityIndicatorManager+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040B12A3C5F9800581D1F /* AIMActivityIndicatorManager+Window.swift */; };
+		D90040BF2A3C5F9800581D1F /* AIMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040B22A3C5F9800581D1F /* AIMConstants.swift */; };
+		D90040C02A3C5F9800581D1F /* AIMActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040B32A3C5F9800581D1F /* AIMActivityIndicatorManager.swift */; };
+		D90040C12A3C5F9800581D1F /* AIMActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040B42A3C5F9800581D1F /* AIMActivityIndicatorProtocol.swift */; };
 		D976FCF72A3A1ED000565B1B /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF12A3A1ED000565B1B /* UIStackView.swift */; };
 		D976FCF82A3A1ED000565B1B /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF22A3A1ED000565B1B /* ViewExtension.swift */; };
 		D976FCF92A3A1ED000565B1B /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF32A3A1ED000565B1B /* UITableView.swift */; };
@@ -81,6 +94,20 @@
 		5F9113FA3A985221709C9478 /* Pods_WeatherApp_WeatherAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp_WeatherAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D900409F2A3C1E3300581D1F /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
 		D90040A12A3C40DF00581D1F /* DateFormatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatComponent.swift; sourceTree = "<group>"; };
+		D90040A42A3C5F9800581D1F /* AIMMinimumLoadingTimeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMMinimumLoadingTimeType.swift; sourceTree = "<group>"; };
+		D90040A52A3C5F9800581D1F /* AIMNativeTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMNativeTypeModel.swift; sourceTree = "<group>"; };
+		D90040A62A3C5F9800581D1F /* ActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatorManager.h; sourceTree = "<group>"; };
+		D90040A72A3C5F9800581D1F /* AIMActivityIndicatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMActivityIndicatorType.swift; sourceTree = "<group>"; };
+		D90040A92A3C5F9800581D1F /* AIMActivityIndicatorManager+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AIMActivityIndicatorManager+View.swift"; sourceTree = "<group>"; };
+		D90040AA2A3C5F9800581D1F /* ViewActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		D90040AC2A3C5F9800581D1F /* UIView+ExpandInSuperview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ExpandInSuperview.swift"; sourceTree = "<group>"; };
+		D90040AD2A3C5F9800581D1F /* UIWindow+KeyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+KeyWindow.swift"; sourceTree = "<group>"; };
+		D90040AE2A3C5F9800581D1F /* UIActivityIndicatorViewStyle+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorViewStyle+Default.swift"; sourceTree = "<group>"; };
+		D90040B02A3C5F9800581D1F /* WindowActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		D90040B12A3C5F9800581D1F /* AIMActivityIndicatorManager+Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AIMActivityIndicatorManager+Window.swift"; sourceTree = "<group>"; };
+		D90040B22A3C5F9800581D1F /* AIMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMConstants.swift; sourceTree = "<group>"; };
+		D90040B32A3C5F9800581D1F /* AIMActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		D90040B42A3C5F9800581D1F /* AIMActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
 		D976FCF12A3A1ED000565B1B /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		D976FCF22A3A1ED000565B1B /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		D976FCF32A3A1ED000565B1B /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -173,9 +200,55 @@
 		D900409E2A3C1E1500581D1F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D90040A32A3C5F9800581D1F /* ActivityIndicatorManager */,
 				D900409F2A3C1E3300581D1F /* CoreManager.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		D90040A32A3C5F9800581D1F /* ActivityIndicatorManager */ = {
+			isa = PBXGroup;
+			children = (
+				D90040A42A3C5F9800581D1F /* AIMMinimumLoadingTimeType.swift */,
+				D90040A52A3C5F9800581D1F /* AIMNativeTypeModel.swift */,
+				D90040A62A3C5F9800581D1F /* ActivityIndicatorManager.h */,
+				D90040A72A3C5F9800581D1F /* AIMActivityIndicatorType.swift */,
+				D90040A82A3C5F9800581D1F /* ViewActivityIndicatorManager */,
+				D90040AB2A3C5F9800581D1F /* Extensions */,
+				D90040AF2A3C5F9800581D1F /* WindowActivityIndicatorManager */,
+				D90040B22A3C5F9800581D1F /* AIMConstants.swift */,
+				D90040B32A3C5F9800581D1F /* AIMActivityIndicatorManager.swift */,
+				D90040B42A3C5F9800581D1F /* AIMActivityIndicatorProtocol.swift */,
+			);
+			path = ActivityIndicatorManager;
+			sourceTree = "<group>";
+		};
+		D90040A82A3C5F9800581D1F /* ViewActivityIndicatorManager */ = {
+			isa = PBXGroup;
+			children = (
+				D90040A92A3C5F9800581D1F /* AIMActivityIndicatorManager+View.swift */,
+				D90040AA2A3C5F9800581D1F /* ViewActivityIndicatorManager.swift */,
+			);
+			path = ViewActivityIndicatorManager;
+			sourceTree = "<group>";
+		};
+		D90040AB2A3C5F9800581D1F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D90040AC2A3C5F9800581D1F /* UIView+ExpandInSuperview.swift */,
+				D90040AD2A3C5F9800581D1F /* UIWindow+KeyWindow.swift */,
+				D90040AE2A3C5F9800581D1F /* UIActivityIndicatorViewStyle+Default.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D90040AF2A3C5F9800581D1F /* WindowActivityIndicatorManager */ = {
+			isa = PBXGroup;
+			children = (
+				D90040B02A3C5F9800581D1F /* WindowActivityIndicatorManager.swift */,
+				D90040B12A3C5F9800581D1F /* AIMActivityIndicatorManager+Window.swift */,
+			);
+			path = WindowActivityIndicatorManager;
 			sourceTree = "<group>";
 		};
 		D93F65D12DB52103C99DC9A5 /* Frameworks */ = {
@@ -604,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D90040BA2A3C5F9800581D1F /* UIView+ExpandInSuperview.swift in Sources */,
 				D9BA127B2A3A1D1E004F26E0 /* TargetType.swift in Sources */,
 				D976FD1A2A3AEA1900565B1B /* WaterTargetType.swift in Sources */,
 				D976FD2B2A3B154900565B1B /* ForeCastModels.swift in Sources */,
@@ -611,31 +685,43 @@
 				D976FD092A3A210B00565B1B /* WeatherViewController.swift in Sources */,
 				D9BA124B2A3A1908004F26E0 /* ViewController.swift in Sources */,
 				D976FD082A3A210B00565B1B /* WeatherModels.swift in Sources */,
+				D90040B92A3C5F9800581D1F /* ViewActivityIndicatorManager.swift in Sources */,
+				D90040BF2A3C5F9800581D1F /* AIMConstants.swift in Sources */,
+				D90040B62A3C5F9800581D1F /* AIMNativeTypeModel.swift in Sources */,
 				D976FD0C2A3A229800565B1B /* Generics.swift in Sources */,
 				D976FD062A3A210B00565B1B /* WeatherWorker.swift in Sources */,
+				D90040BE2A3C5F9800581D1F /* AIMActivityIndicatorManager+Window.swift in Sources */,
 				D976FD1E2A3B0F9300565B1B /* BaseRouter.swift in Sources */,
 				D976FD182A3AE88400565B1B /* WeatherData.swift in Sources */,
 				D976FD282A3B154900565B1B /* ForeCastPresenter.swift in Sources */,
 				D976FCF72A3A1ED000565B1B /* UIStackView.swift in Sources */,
 				D9BA12472A3A1908004F26E0 /* AppDelegate.swift in Sources */,
 				D976FD2C2A3B154900565B1B /* ForeCastViewController.swift in Sources */,
+				D90040C12A3C5F9800581D1F /* AIMActivityIndicatorProtocol.swift in Sources */,
 				D90040A22A3C40DF00581D1F /* DateFormatComponent.swift in Sources */,
 				D976FCFC2A3A1ED000565B1B /* UIImageView.swift in Sources */,
 				D90040A02A3C1E3300581D1F /* CoreManager.swift in Sources */,
+				D90040BC2A3C5F9800581D1F /* UIActivityIndicatorViewStyle+Default.swift in Sources */,
 				D9BA12492A3A1908004F26E0 /* SceneDelegate.swift in Sources */,
+				D90040B72A3C5F9800581D1F /* AIMActivityIndicatorType.swift in Sources */,
 				D976FD052A3A210B00565B1B /* WeatherPresenter.swift in Sources */,
 				D976FCFA2A3A1ED000565B1B /* UITableViewCell.swift in Sources */,
 				D976FD332A3B246900565B1B /* ForeCastTableViewCell.swift in Sources */,
 				D976FCF92A3A1ED000565B1B /* UITableView.swift in Sources */,
 				D976FD2A2A3B154900565B1B /* ForeCastRouter.swift in Sources */,
+				D90040B82A3C5F9800581D1F /* AIMActivityIndicatorManager+View.swift in Sources */,
+				D90040BB2A3C5F9800581D1F /* UIWindow+KeyWindow.swift in Sources */,
 				D976FD202A3B102C00565B1B /* UINavigationController.swift in Sources */,
 				D976FD2D2A3B154900565B1B /* ForeCastInteractor.swift in Sources */,
 				D9BA127D2A3A1D2D004F26E0 /* CharacterTargetType.swift in Sources */,
 				D976FD072A3A210B00565B1B /* WeatherRouter.swift in Sources */,
+				D90040C02A3C5F9800581D1F /* AIMActivityIndicatorManager.swift in Sources */,
+				D90040B52A3C5F9800581D1F /* AIMMinimumLoadingTimeType.swift in Sources */,
 				D976FCFB2A3A1ED000565B1B /* UIButton.swift in Sources */,
 				D976FD292A3B154900565B1B /* ForeCastWorker.swift in Sources */,
 				D976FCF82A3A1ED000565B1B /* ViewExtension.swift in Sources */,
 				D9BA12782A3A1CDE004F26E0 /* MoyaService.swift in Sources */,
+				D90040BD2A3C5F9800581D1F /* WindowActivityIndicatorManager.swift in Sources */,
 				D976FD0A2A3A210B00565B1B /* WeatherInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,6 +35,7 @@ class ForeCastInteractor: ForeCastBusinessLogic, ForeCastDataStore
   // MARK: Do something
   
   func getForecast(request: ForeCast.GetForeCast.Request) {
+      presenter?.presentForecast(response: .init(result: .loading))
       worker?.fetchForecast(lat: lat, lon: lon, apiKey: apiKey, completion: { result in
           switch result {
           case .success(let result):

@@ -105,6 +105,12 @@ class WeatherViewController: UIViewController {
         convertButton.isHidden = value
     }
     
+    private func showAlert(localizedDescription: String) {
+        let alert = UIAlertController(title: "Error", message: localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension WeatherViewController: WeatherDisplayLogic {
@@ -112,11 +118,13 @@ extension WeatherViewController: WeatherDisplayLogic {
     func displayWeather(viewModel: Weather.GetWeather.ViewModel) {
         switch viewModel.content {
             
-        case .loading: break
+        case .loading: AIMActivityIndicatorManager.sharedInstance.shouldShowIndicator()
         case .empty:
+            AIMActivityIndicatorManager.sharedInstance.forceHideIndicator()
             setHidden(value: true)
-            interactor?.resetVaule()
+            interactor?.resetValue()
         case .success(data: let data):
+            AIMActivityIndicatorManager.sharedInstance.forceHideIndicator()
             setHidden(value: false)
             cityLabel.text = data.cityName
             temperatureLabel.text = data.temperatureString
@@ -124,7 +132,7 @@ extension WeatherViewController: WeatherDisplayLogic {
             fahrenheitStackView.isHidden = true
         case .error(error: let error):
             setHidden(value: true)
-            print(error)
+            showAlert(localizedDescription: error.localizedDescription)
         }
     }
     
@@ -162,8 +170,6 @@ extension WeatherViewController: UITextFieldDelegate {
             let request = Weather.GetWeather.Request(city: city)
             interactor?.getWeatherByCity(request: request)
         }
-        
         searchTextField.text = ""
-        
     }
 }

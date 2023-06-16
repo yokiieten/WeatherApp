@@ -15,7 +15,7 @@ import UIKit
 protocol WeatherBusinessLogic {
     func getWeatherByCity(request: Weather.GetWeather.Request)
     func calculateFahrenheit(request: Weather.CalulateFahrenheit.Request)
-    func resetVaule()
+    func resetValue()
 }
 
 protocol WeatherDataStore {
@@ -32,7 +32,7 @@ class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
     // MARK: Do something
     
     func getWeatherByCity(request: Weather.GetWeather.Request) {
-        
+        self.presenter?.presentWeatherByCity(response: .init(result: .loading))
         worker?.fetchWeather(city: request.city, apiKey: apiKey, completion: { result in
             switch result {
             case .success(let result):
@@ -55,7 +55,7 @@ class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
         
     }
     
-    func resetVaule() {
+    func resetValue() {
         self.lat = nil
         self.lon = nil
     }

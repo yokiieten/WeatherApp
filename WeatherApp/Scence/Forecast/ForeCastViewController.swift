@@ -79,19 +79,26 @@ class ForeCastViewController: UIViewController {
         tableView.registerCells(classNames: [ForeCastTableViewCell.reuseIdentifer])
     }
     
+    private func showAlert(localizedDescription: String) {
+        let alert = UIAlertController(title: "Error", message: localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension ForeCastViewController : ForeCastDisplayLogic {
     
     func displayForecast(viewModel: ForeCast.GetForeCast.ViewModel) {
         switch viewModel.content {
-        case .loading: break
-        case .empty: break
+        case .loading: AIMActivityIndicatorManager.sharedInstance.shouldShowIndicator()
+        case .empty: AIMActivityIndicatorManager.sharedInstance.forceHideIndicator()
         case .success(data: let data):
             weatherListModel = data
             tableView.reloadData()
+            AIMActivityIndicatorManager.sharedInstance.forceHideIndicator()
         case .error(error: let error):
-            print(error)
+            showAlert(localizedDescription: error.localizedDescription)
         }
     }
 }
