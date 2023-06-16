@@ -28,7 +28,6 @@ class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
     var apiKey = CoreManager.sharedInstance.apiKey
     var lon: Double?
     var lat: Double?
-    
     // MARK: Do something
     
     func getWeatherByCity(request: Weather.GetWeather.Request) {

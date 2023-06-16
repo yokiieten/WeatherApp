@@ -16,16 +16,13 @@ enum ForeCast
 {
   // MARK: Use cases
   
-  enum GetForeCast
-  {
-    struct Request
-    {
+  enum GetForeCast {
+    struct Request {}
+    struct Response {
+        let result: UserResult<ForecastDataResponse>
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
+    struct ViewModel {
+        var content: Content<[WeatherModel], Error>
     }
   }
 }

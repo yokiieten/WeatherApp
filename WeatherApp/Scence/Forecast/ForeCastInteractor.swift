@@ -20,14 +20,16 @@ protocol ForeCastBusinessLogic
 protocol ForeCastDataStore {
     var lon: Double { get set }
     var lat: Double { get set }
+    var city: String { get set }
 }
 
 class ForeCastInteractor: ForeCastBusinessLogic, ForeCastDataStore
 {
-  var presenter: ForeCastPresentationLogic?
-  var worker: ForeCastWorker?
-  var lon: Double = 0.0
-  var lat: Double = 0.0
+    var presenter: ForeCastPresentationLogic?
+    var worker: ForeCastWorker?
+    var lon: Double = 0.0
+    var lat: Double = 0.0
+    var city: String = ""
     var apiKey = CoreManager.sharedInstance.apiKey
   
   // MARK: Do something
@@ -37,13 +39,10 @@ class ForeCastInteractor: ForeCastBusinessLogic, ForeCastDataStore
           switch result {
           case .success(let result):
               if let response = result {
-//                  self.lat = result?.coord?.lat ?? 0.0
-//                  self.lon = result?.coord?.lon ?? 0.0
-//                  self.presenter?.presentWeatherByCity(response: .init(result: .success(result: response)))
-                  
+                  self.presenter?.presentForecast(response: .init(result: .success(result: response)))
               }
-          case .failure(error: let error): break
-//              self.presenter?.presentWeatherByCity(response: .init(result: .failure(error: error)))
+          case .failure(error: let error):
+              self.presenter?.presentForecast(response: .init(result: .failure(error: error)))
           }
       })
   }

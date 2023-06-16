@@ -11,6 +11,7 @@
 		93DA1C8C074D8B747F252364 /* Pods_WeatherApp_WeatherAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9113FA3A985221709C9478 /* Pods_WeatherApp_WeatherAppUITests.framework */; };
 		CA73C80151A584718D694439 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF773262A1AB8F1148C276B5 /* Pods_WeatherApp.framework */; };
 		D90040A02A3C1E3300581D1F /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900409F2A3C1E3300581D1F /* CoreManager.swift */; };
+		D90040A22A3C40DF00581D1F /* DateFormatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90040A12A3C40DF00581D1F /* DateFormatComponent.swift */; };
 		D976FCF72A3A1ED000565B1B /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF12A3A1ED000565B1B /* UIStackView.swift */; };
 		D976FCF82A3A1ED000565B1B /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF22A3A1ED000565B1B /* ViewExtension.swift */; };
 		D976FCF92A3A1ED000565B1B /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976FCF32A3A1ED000565B1B /* UITableView.swift */; };
@@ -79,6 +80,7 @@
 		5DE74614E261EF6527CC8303 /* Pods_WeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9113FA3A985221709C9478 /* Pods_WeatherApp_WeatherAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp_WeatherAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D900409F2A3C1E3300581D1F /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
+		D90040A12A3C40DF00581D1F /* DateFormatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatComponent.swift; sourceTree = "<group>"; };
 		D976FCF12A3A1ED000565B1B /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		D976FCF22A3A1ED000565B1B /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		D976FCF32A3A1ED000565B1B /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				D976FCF52A3A1ED000565B1B /* UIButton.swift */,
 				D976FCF62A3A1ED000565B1B /* UIImageView.swift */,
 				D976FD0B2A3A229800565B1B /* Generics.swift */,
+				D90040A12A3C40DF00581D1F /* DateFormatComponent.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				D976FCF72A3A1ED000565B1B /* UIStackView.swift in Sources */,
 				D9BA12472A3A1908004F26E0 /* AppDelegate.swift in Sources */,
 				D976FD2C2A3B154900565B1B /* ForeCastViewController.swift in Sources */,
+				D90040A22A3C40DF00581D1F /* DateFormatComponent.swift in Sources */,
 				D976FCFC2A3A1ED000565B1B /* UIImageView.swift in Sources */,
 				D90040A02A3C1E3300581D1F /* CoreManager.swift in Sources */,
 				D9BA12492A3A1908004F26E0 /* SceneDelegate.swift in Sources */,

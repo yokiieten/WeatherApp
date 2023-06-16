@@ -25,4 +25,12 @@ class ForeCastTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func config(weatherModel: WeatherModel) {
+       let datetime = DateFormatComponent().format(dateString: weatherModel.date ?? "", sourcePattern: .timeAPIWeather, destinationPattern: .fullDateTimeTH).lowercased()
+        date.text = datetime
+        cityLabel.text = weatherModel.cityName
+        temperatureLabel.text = weatherModel.temperatureString
+        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+    }
 }

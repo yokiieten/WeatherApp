@@ -13,65 +13,103 @@
 import UIKit
 
 protocol ForeCastDisplayLogic: AnyObject {
-  func displayForecast(viewModel: ForeCast.GetForeCast.ViewModel)
+    func displayForecast(viewModel: ForeCast.GetForeCast.ViewModel)
 }
 
-class ForeCastViewController: UIViewController, ForeCastDisplayLogic {
-  var interactor: ForeCastBusinessLogic?
-  var router: (NSObjectProtocol & ForeCastRoutingLogic & ForeCastDataPassing)?
+class ForeCastViewController: UIViewController {
+    var interactor: ForeCastBusinessLogic?
+    var router: (NSObjectProtocol & ForeCastRoutingLogic & ForeCastDataPassing)?
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = ForeCastInteractor()
+        let presenter = ForeCastPresenter()
+        let router = ForeCastRouter()
+        let worker = ForeCastWorker()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        interactor.worker = worker
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+        
+    }
+    
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getForeCast()
+        setupTableView()
+    }
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    var weatherListModel  = [WeatherModel]()
+    
+    private func getForeCast() {
+        let request = ForeCast.GetForeCast.Request()
+        interactor?.getForecast(request: request)
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerCells(classNames: [ForeCastTableViewCell.reuseIdentifer])
+    }
+    
+}
 
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = ForeCastInteractor()
-    let presenter = ForeCastPresenter()
-    let router = ForeCastRouter()
-    let worker = ForeCastWorker()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    interactor.worker = worker
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-      
-  }
-  
- 
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething() {
-    let request = ForeCast.GetForeCast.Request()
-    interactor?.getForecast(request: request)
-  }
-  
-  func displayForecast(viewModel: ForeCast.GetForeCast.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+extension ForeCastViewController : ForeCastDisplayLogic {
+    
+    func displayForecast(viewModel: ForeCast.GetForeCast.ViewModel) {
+        switch viewModel.content {
+        case .loading: break
+        case .empty: break
+        case .success(data: let data):
+            weatherListModel = data
+            tableView.reloadData()
+        case .error(error: let error):
+            print(error)
+        }
+    }
+}
+
+extension ForeCastViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weatherListModel.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ForeCastTableViewCell.reuseIdentifer) as? ForeCastTableViewCell else { return UITableViewCell() }
+        cell.config(weatherModel: weatherListModel[indexPath.row])
+        return cell
+    }
+    
+}
+
+extension ForeCastViewController: UITableViewDelegate {
+    
 }

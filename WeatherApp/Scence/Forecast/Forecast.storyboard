@@ -30,6 +30,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rDN-0e-FJ2" secondAttribute="trailing" id="d7O-en-uTG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="rDN-0e-FJ2" id="Rrc-TS-ibd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

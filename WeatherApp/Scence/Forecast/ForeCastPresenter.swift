@@ -12,20 +12,36 @@
 
 import UIKit
 
-protocol ForeCastPresentationLogic
-{
-  func presentForecast(response: ForeCast.GetForeCast.Response)
+protocol ForeCastPresentationLogic {
+    func presentForecast(response: ForeCast.GetForeCast.Response)
 }
 
-class ForeCastPresenter: ForeCastPresentationLogic
-{
-  weak var viewController: ForeCastDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentForecast(response: ForeCast.GetForeCast.Response)
-  {
-    let viewModel = ForeCast.GetForeCast.ViewModel()
-    viewController?.displayForecast(viewModel: viewModel)
-  }
+class ForeCastPresenter: ForeCastPresentationLogic {
+    weak var viewController: ForeCastDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentForecast(response: ForeCast.GetForeCast.Response) {
+        typealias ViewModel = ForeCast.GetForeCast.ViewModel
+        let viewModel: ViewModel
+        switch response.result {
+            
+        case .loading: viewModel = ViewModel(content: .loading)
+        case .success(result: let result):
+            var weatherListViewModel = [WeatherModel]()
+            guard let lists = result.list else { return  }
+            for list in lists {
+                let id = unwrapped(list.weather?.first?.id, with: 0)
+                let temperature = unwrapped(list.main?.temp, with: 0.0)
+                let name = unwrapped(result.city?.name, with: "non")
+                let date = unwrapped(list.dt_txt, with: "-")
+                let weatherViewModel = WeatherModel(conditionId: id, cityName: name, temperature: temperature, date: date)
+                weatherListViewModel.append(weatherViewModel)
+            }
+            viewModel = ViewModel(content: .success(data: weatherListViewModel))
+        case .failure(error: let error):
+            viewModel = ViewModel(content: .error(error: .init(title: error.localizedDescription, message: "", case: error)))
+        }
+        viewController?.displayForecast(viewModel: viewModel)
+    }
 }
