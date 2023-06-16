@@ -33,10 +33,12 @@ extension WeatherTargetType: TargetType {
         switch self {
         case .getWeatherByCityName(let city, let apiKey):
             return .requestParameters(parameters: ["q": city,
+                                                   "units": "metric",
                                                    "appid": apiKey], encoding: URLEncoding.queryString)
         case .getForecast(let lat, let lon, let apiKey):
             return .requestParameters(parameters: ["lat": lat,
                                                    "lon": lon,
+                                                   "units": "metric",
                                                    "appid": apiKey], encoding: URLEncoding.queryString)
         }
     }
