@@ -32,11 +32,12 @@ class WeatherPresenter: WeatherPresentationLogic
       case .success(let data):
           let id = unwrapped(data.weather?.first?.id, with: 0)
           let temperature = unwrapped(data.main?.temp, with: 0.0)
+          let humidity = unwrapped(data.main?.humidity, with: 0)
           let name = unwrapped(data.name, with: "")
           if id == 0 {
               viewModel = ViewModel(content: .empty)
           } else {
-              let weatherViewModel = WeatherModel(conditionId: id, cityName: name, temperature: temperature)
+              let weatherViewModel = WeatherModel(conditionId: id, cityName: name, temperature: temperature, humidity: humidity)
               viewModel = ViewModel(content: .success(data: weatherViewModel))
           }
       case .failure(let error):

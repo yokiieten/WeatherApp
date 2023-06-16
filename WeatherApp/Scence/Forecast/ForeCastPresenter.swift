@@ -33,9 +33,10 @@ class ForeCastPresenter: ForeCastPresentationLogic {
             for list in lists {
                 let id = unwrapped(list.weather?.first?.id, with: 0)
                 let temperature = unwrapped(list.main?.temp, with: 0.0)
+                let humidity = unwrapped(list.main?.humidity, with: 0)
                 let name = unwrapped(result.city?.name, with: "non")
                 let date = unwrapped(list.dt_txt, with: "-")
-                let weatherViewModel = WeatherModel(conditionId: id, cityName: name, temperature: temperature, date: date)
+                let weatherViewModel = WeatherModel(conditionId: id, cityName: name, temperature: temperature, humidity: humidity, date: date)
                 weatherListViewModel.append(weatherViewModel)
             }
             viewModel = ViewModel(content: .success(data: weatherListViewModel))

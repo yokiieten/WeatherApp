@@ -28,8 +28,10 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var fahrenheitLabel: UILabel!
     @IBOutlet weak var fahrenheitStackView: UIStackView!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var celsiusStackView: UIStackView!
+    @IBOutlet weak var tempuratureStackView: UIStackView!
     @IBOutlet weak var convertButton: UIButton!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var humidityStackView: UIStackView!
     
     
     // MARK: Object lifecycle
@@ -98,11 +100,12 @@ class WeatherViewController: UIViewController {
     
     private func setHidden(value: Bool) {
         errorLabel.isHidden = !value
-        celsiusStackView.isHidden = value
+        tempuratureStackView.isHidden = value
         fahrenheitStackView.isHidden = value
         cityLabel.isHidden = value
         conditionImageView.isHidden = value
         convertButton.isHidden = value
+        humidityStackView.isHidden = value
     }
     
     private func showAlert(localizedDescription: String) {
@@ -128,6 +131,7 @@ extension WeatherViewController: WeatherDisplayLogic {
             setHidden(value: false)
             cityLabel.text = data.cityName
             temperatureLabel.text = data.temperatureString
+            humidityLabel.text = data.humidityString
             conditionImageView.image = UIImage(systemName: data.conditionName)
             fahrenheitStackView.isHidden = true
         case .error(error: let error):

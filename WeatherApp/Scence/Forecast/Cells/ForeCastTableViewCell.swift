@@ -13,6 +13,7 @@ class ForeCastTableViewCell: UITableViewCell {
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,7 @@ class ForeCastTableViewCell: UITableViewCell {
         date.text = datetime
         cityLabel.text = weatherModel.cityName
         temperatureLabel.text = weatherModel.temperatureString
+        humidityLabel.text = weatherModel.humidityString
         conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
     }
 }
