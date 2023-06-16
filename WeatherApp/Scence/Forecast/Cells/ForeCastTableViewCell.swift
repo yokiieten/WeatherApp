@@ -8,6 +8,11 @@
 import UIKit
 
 class ForeCastTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var conditionImageView: UIImageView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -25,7 +25,7 @@ protocol WeatherDataStore {
 class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
     var presenter: WeatherPresentationLogic?
     var worker: WeatherWorker?
-    var apiKey = "4b65dedcdc183d4f99918a6bb9cfeb62"
+    var apiKey = CoreManager.sharedInstance.apiKey
     var lon: Double?
     var lat: Double?
     
