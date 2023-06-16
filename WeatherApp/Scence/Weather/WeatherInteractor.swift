@@ -15,6 +15,7 @@ import UIKit
 protocol WeatherBusinessLogic {
     func getWeatherByCity(request: Weather.GetWeather.Request)
     func calculateFahrenheit(request: Weather.CalulateFahrenheit.Request)
+    func resetVaule()
 }
 
 protocol WeatherDataStore {
@@ -52,5 +53,10 @@ class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
         let fahrenheit = (celsius * 1.8) + 32
         presenter?.presentFahrenheit(response: .init(resultFahrenheit: fahrenheit))
         
+    }
+    
+    func resetVaule() {
+        self.lat = nil
+        self.lon = nil
     }
 }

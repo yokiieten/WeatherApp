@@ -115,6 +115,7 @@ extension WeatherViewController: WeatherDisplayLogic {
         case .loading: break
         case .empty:
             setHidden(value: true)
+            interactor?.resetVaule()
         case .success(data: let data):
             setHidden(value: false)
             cityLabel.text = data.cityName
