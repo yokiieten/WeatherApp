@@ -49,9 +49,18 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tapSearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hja-ba-dq5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill correct city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4N-uE-v6g">
+                                        <rect key="frame" x="87.666666666666686" y="45" width="218" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oar-DL-q6f">
                                         <rect key="frame" x="0.0" y="50" width="393" height="120"/>
                                         <subviews>
@@ -96,6 +105,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="Sqc-4h-Lnh"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.10832791780000001" green="0.26403817530000001" blue="0.28160464759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Convert">
                                             <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="40"/>
@@ -154,8 +164,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="X8e-Rv-gUx"/>
                     <connections>
+                        <outlet property="celsiusStackView" destination="SD5-VX-Cdr" id="NYh-rW-iJI"/>
                         <outlet property="cityLabel" destination="D8w-Fg-njI" id="Hd6-Jo-6Ho"/>
                         <outlet property="conditionImageView" destination="Mzr-DK-JvD" id="bVl-BY-9H9"/>
+                        <outlet property="convertButton" destination="dbA-ky-sta" id="AZz-if-n4G"/>
+                        <outlet property="errorLabel" destination="c4N-uE-v6g" id="1sG-N7-fTn"/>
                         <outlet property="fahrenheitLabel" destination="set-1C-FAK" id="RTS-4H-4Dm"/>
                         <outlet property="fahrenheitStackView" destination="MhY-Jh-blY" id="kIk-2W-rQa"/>
                         <outlet property="searchTextField" destination="WMI-2l-S1N" id="vZw-ZL-gTM"/>
@@ -201,6 +214,9 @@
         </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

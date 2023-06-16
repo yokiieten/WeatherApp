@@ -13,13 +13,13 @@
 import UIKit
 
 protocol WeatherDisplayLogic: AnyObject {
-  func displayWeather(viewModel: Weather.GetWeather.ViewModel)
-  func displayFahrenheit(viewModel: Weather.CalulateFahrenheit.ViewModel)
+    func displayWeather(viewModel: Weather.GetWeather.ViewModel)
+    func displayFahrenheit(viewModel: Weather.CalulateFahrenheit.ViewModel)
 }
 
 class WeatherViewController: UIViewController {
-  var interactor: WeatherBusinessLogic?
-  var router: (WeatherRoutingLogic & WeatherDataPassing)?
+    var interactor: WeatherBusinessLogic?
+    var router: (WeatherRoutingLogic & WeatherDataPassing)?
     
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -27,46 +27,50 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var fahrenheitLabel: UILabel!
     @IBOutlet weak var fahrenheitStackView: UIStackView!
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = WeatherInteractor()
-    let presenter = WeatherPresenter()
-    let router = WeatherRouter()
-    let worker = WeatherWorker()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    interactor.worker = worker
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var celsiusStackView: UIStackView!
+    @IBOutlet weak var convertButton: UIButton!
     
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-      searchTextField.delegate = self
-      setupNavigationBar()
-  }
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = WeatherInteractor()
+        let presenter = WeatherPresenter()
+        let router = WeatherRouter()
+        let worker = WeatherWorker()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        interactor.worker = worker
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchTextField.delegate = self
+        setupNavigationBar()
+    }
     
     private func setupNavigationBar() {
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(pushToForeCast))]
@@ -77,9 +81,28 @@ class WeatherViewController: UIViewController {
         router?.routeToForecast()
     }
     
+    
+    @IBAction func tapSearchButton(_ sender: Any) {
+        if let city = searchTextField.text {
+            let request = Weather.GetWeather.Request(city: city)
+            interactor?.getWeatherByCity(request: request)
+        }
+        
+        searchTextField.text = ""
+    }
+    
     @IBAction func tapConvert(_ sender: Any) {
         guard let celsius = temperatureLabel.text else { return }
         interactor?.calculateFahrenheit(request: .init(celsius: celsius))
+    }
+    
+    private func setHidden(value: Bool) {
+        errorLabel.isHidden = !value
+        celsiusStackView.isHidden = value
+        fahrenheitStackView.isHidden = value
+        cityLabel.isHidden = value
+        conditionImageView.isHidden = value
+        convertButton.isHidden = value
     }
     
 }
@@ -88,10 +111,12 @@ extension WeatherViewController: WeatherDisplayLogic {
     
     func displayWeather(viewModel: Weather.GetWeather.ViewModel) {
         switch viewModel.content {
-          
+            
         case .loading: break
-        case .empty: break
+        case .empty:
+            setHidden(value: true)
         case .success(data: let data):
+            setHidden(value: false)
             cityLabel.text = data.cityName
             temperatureLabel.text = data.temperatureString
             conditionImageView.image = UIImage(systemName: data.conditionName)
@@ -133,7 +158,7 @@ extension WeatherViewController: UITextFieldDelegate {
         
         if let city = searchTextField.text {
             let request = Weather.GetWeather.Request(city: city)
-          interactor?.getWeatherByCity(request: request)
+            interactor?.getWeatherByCity(request: request)
         }
         
         searchTextField.text = ""
