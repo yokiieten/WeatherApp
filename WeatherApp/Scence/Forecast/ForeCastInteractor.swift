@@ -14,7 +14,7 @@ import UIKit
 
 protocol ForeCastBusinessLogic
 {
-  func doSomething(request: ForeCast.Something.Request)
+  func getForecast(request: ForeCast.GetForeCast.Request)
 }
 
 protocol ForeCastDataStore {
@@ -28,15 +28,23 @@ class ForeCastInteractor: ForeCastBusinessLogic, ForeCastDataStore
   var worker: ForeCastWorker?
   var lon: Double = 0.0
   var lat: Double = 0.0
+    var apiKey = "4b65dedcdc183d4f99918a6bb9cfeb62"
   
   // MARK: Do something
   
-  func doSomething(request: ForeCast.Something.Request)
-  {
-    worker = ForeCastWorker()
-    worker?.doSomeWork()
-    
-    let response = ForeCast.Something.Response()
-    presenter?.presentSomething(response: response)
+  func getForecast(request: ForeCast.GetForeCast.Request) {
+      worker?.fetchForecast(lat: lat, lon: lon, apiKey: apiKey, completion: { result in
+          switch result {
+          case .success(let result):
+              if let response = result {
+//                  self.lat = result?.coord?.lat ?? 0.0
+//                  self.lon = result?.coord?.lon ?? 0.0
+//                  self.presenter?.presentWeatherByCity(response: .init(result: .success(result: response)))
+                  
+              }
+          case .failure(error: let error): break
+//              self.presenter?.presentWeatherByCity(response: .init(result: .failure(error: error)))
+          }
+      })
   }
 }

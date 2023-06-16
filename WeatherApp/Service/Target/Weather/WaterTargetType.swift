@@ -9,23 +9,23 @@ import Moya
 
 enum WeatherTargetType {
     case getWeatherByCityName(city: String, apiKey: String)
-    case searchCharacter(characterId: String)
+    case getForecast(lat: Double, lon: Double, apiKey: String)
 }
 
 extension WeatherTargetType: TargetType {
     var path: String {
         switch self {
-        case .getWeatherByCityName(_):
+        case .getWeatherByCityName:
             return "/data/2.5/weather"
-        case .searchCharacter(let id):
-            return "/api/character/\(id)"
+        case .getForecast:
+            return "/data/2.5/forecast"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .getWeatherByCityName(_):
+        case .getWeatherByCityName:
             return .get
-        case .searchCharacter(_):
+        case .getForecast:
             return .get
         }
     }
@@ -34,8 +34,10 @@ extension WeatherTargetType: TargetType {
         case .getWeatherByCityName(let city, let apiKey):
             return .requestParameters(parameters: ["q": city,
                                                    "appid": apiKey], encoding: URLEncoding.queryString)
-        case .searchCharacter(characterId: _):
-            return .requestPlain
+        case .getForecast(let lat, let lon, let apiKey):
+            return .requestParameters(parameters: ["lat": lat,
+                                                   "lon": lon,
+                                                   "appid": apiKey], encoding: URLEncoding.queryString)
         }
     }
 }

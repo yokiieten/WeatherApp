@@ -12,13 +12,11 @@
 
 import UIKit
 
-protocol ForeCastDisplayLogic: class
-{
-  func displaySomething(viewModel: ForeCast.Something.ViewModel)
+protocol ForeCastDisplayLogic: AnyObject {
+  func displayForecast(viewModel: ForeCast.GetForeCast.ViewModel)
 }
 
-class ForeCastViewController: UIViewController, ForeCastDisplayLogic
-{
+class ForeCastViewController: UIViewController, ForeCastDisplayLogic {
   var interactor: ForeCastBusinessLogic?
   var router: (NSObjectProtocol & ForeCastRoutingLogic & ForeCastDataPassing)?
 
@@ -44,30 +42,21 @@ class ForeCastViewController: UIViewController, ForeCastDisplayLogic
     let interactor = ForeCastInteractor()
     let presenter = ForeCastPresenter()
     let router = ForeCastRouter()
+    let worker = ForeCastWorker()
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
+    interactor.worker = worker
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor
+      
   }
   
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  
+ 
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
     doSomething()
   }
@@ -76,13 +65,12 @@ class ForeCastViewController: UIViewController, ForeCastDisplayLogic
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething()
-  {
-    let request = ForeCast.Something.Request()
-    interactor?.doSomething(request: request)
+  func doSomething() {
+    let request = ForeCast.GetForeCast.Request()
+    interactor?.getForecast(request: request)
   }
   
-  func displaySomething(viewModel: ForeCast.Something.ViewModel)
+  func displayForecast(viewModel: ForeCast.GetForeCast.ViewModel)
   {
     //nameTextField.text = viewModel.name
   }

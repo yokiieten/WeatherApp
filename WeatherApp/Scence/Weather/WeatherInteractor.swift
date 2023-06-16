@@ -37,8 +37,8 @@ class WeatherInteractor: WeatherBusinessLogic, WeatherDataStore {
             switch result {
             case .success(let result):
                 if let response = result {
-                    self.lat = result?.coord.lat ?? 0.0
-                    self.lon = result?.coord.lon ?? 0.0
+                    self.lat = result?.coord?.lat ?? 0.0
+                    self.lon = result?.coord?.lon ?? 0.0
                     self.presenter?.presentWeatherByCity(response: .init(result: .success(result: response)))
                     
                 }

@@ -13,9 +13,7 @@
 import UIKit
 import Moya
 
-class WeatherWorker
-{
-    static var provider = MoyaProvider<MultiTarget>()
+class WeatherWorker {
     
     func fetchWeather(city: String, apiKey: String , completion: @escaping (Result<WeatherDataResponse?>) ->()) {
         let target = WeatherTargetType.getWeatherByCityName(city: city, apiKey: apiKey)

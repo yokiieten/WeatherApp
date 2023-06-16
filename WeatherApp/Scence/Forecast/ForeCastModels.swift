@@ -16,7 +16,7 @@ enum ForeCast
 {
   // MARK: Use cases
   
-  enum Something
+  enum GetForeCast
   {
     struct Request
     {

@@ -14,7 +14,7 @@ import UIKit
 
 protocol ForeCastPresentationLogic
 {
-  func presentSomething(response: ForeCast.Something.Response)
+  func presentForecast(response: ForeCast.GetForeCast.Response)
 }
 
 class ForeCastPresenter: ForeCastPresentationLogic
@@ -23,9 +23,9 @@ class ForeCastPresenter: ForeCastPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: ForeCast.Something.Response)
+  func presentForecast(response: ForeCast.GetForeCast.Response)
   {
-    let viewModel = ForeCast.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    let viewModel = ForeCast.GetForeCast.ViewModel()
+    viewController?.displayForecast(viewModel: viewModel)
   }
 }

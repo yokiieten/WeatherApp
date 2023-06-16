@@ -11,10 +11,21 @@
 //
 
 import UIKit
+import Moya
 
-class ForeCastWorker
-{
-  func doSomeWork()
-  {
-  }
+class ForeCastWorker {
+    
+      func fetchForecast(lat: Double, lon: Double, apiKey: String , completion: @escaping (Result<ForecastDataResponse?>) ->()) {
+          let target = WeatherTargetType.getForecast(lat: lat, lon: lon, apiKey: apiKey)
+          MoyaService<ForecastDataResponse>.getRequest(target: target) { result in
+              switch result {
+                  
+              case .success(result: let result):
+                  completion(.success(result: result))
+              case .failure(error: let error):
+                  completion(.failure(error: error))
+              }
+          }
+      }
+
 }
