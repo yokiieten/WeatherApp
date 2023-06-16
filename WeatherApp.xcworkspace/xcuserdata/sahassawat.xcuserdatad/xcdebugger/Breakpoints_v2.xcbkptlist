@@ -1037,7 +1037,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1B879E88-F7BC-4665-9828-B42252C6B1D4"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherApp/Scence/Weather/WeatherInteractor.swift"
@@ -1047,6 +1047,38 @@
             endingLineNumber = "46"
             landmarkName = "getWeatherByCity(request:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1B879E88-F7BC-4665-9828-B42252C6B1D4 - 886c728e1b4b3690"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (WeatherApp.Result&lt;Swift.Optional&lt;WeatherApp.WeatherDataResponse&gt;&gt;) -&gt; () in WeatherApp.WeatherInteractor.getWeatherByCity(request: WeatherApp.Weather.GetWeather.Request) -&gt; ()"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sahassawat/Documents/iOS/Storyboard/WeatherApp/WeatherApp/Scence/Weather/WeatherInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1756">
+               </Location>
+               <Location
+                  uuid = "1B879E88-F7BC-4665-9828-B42252C6B1D4 - 886c728e1b4b36f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (WeatherApp.Result&lt;Swift.Optional&lt;WeatherApp.WeatherDataResponse&gt;&gt;) -&gt; () in WeatherApp.WeatherInteractor.getWeatherByCity(request: WeatherApp.Weather.GetWeather.Request) -&gt; ()"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sahassawat/Documents/iOS/Storyboard/WeatherApp/WeatherApp/Scence/Weather/WeatherInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "1756">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1063,38 +1095,6 @@
             endingLineNumber = "43"
             landmarkName = "presentWeatherByCity(response:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B85BDEC4-BA1A-43A0-BF45-6F949FEFBC69 - 8f870fd78dfcb3d5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "WeatherApp.WeatherPresenter.presentWeatherByCity(response: WeatherApp.Weather.GetWeather.Response) -&gt; ()"
-                  moduleName = "WeatherApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sahassawat/Documents/iOS/Storyboard/WeatherApp/WeatherApp/Scence/Weather/WeatherPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "1340">
-               </Location>
-               <Location
-                  uuid = "B85BDEC4-BA1A-43A0-BF45-6F949FEFBC69 - 8f870fd78dfcb359"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "WeatherApp.WeatherPresenter.presentWeatherByCity(response: WeatherApp.Weather.GetWeather.Response) -&gt; ()"
-                  moduleName = "WeatherApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sahassawat/Documents/iOS/Storyboard/WeatherApp/WeatherApp/Scence/Weather/WeatherPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1448">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
